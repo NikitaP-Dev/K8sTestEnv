@@ -1,0 +1,26 @@
+repositories:
+  - name: prometheus-community
+    url: https://prometheus-community.github.io/helm-charts
+
+releases:
+  - name: kube-prometheus
+    namespace: monitoring
+    createNamespace: true
+    chart: prometheus-community/kube-prometheus-stack
+    version: 57.0.2
+    values:
+      - ./monitoring/values/kube-prometheus-stack.yaml
+      - ./monitoring/values/grafana-dashboard.yaml
+      - ./monitoring/values/grafana-ingress.yaml
+      - crds:
+          enabled: true
+
+  - name: mysql
+    namespace: database
+    createNamespace: true
+    chart: ./mysql 
+
+  - name: frontend
+    namespace: frontend
+    createNamespace: true
+    chart: ./frontend
