@@ -1,0 +1,16 @@
+replicaCount: 1
+
+image:
+  repository: mysql
+  tag: latest
+
+mysql:
+  rootPassword: password
+
+storage:
+  accessModes: [ "ReadWriteOnce" ]
+  size: 5Gi
+
+service:
+  type: ClusterIP
+  port: 3306
