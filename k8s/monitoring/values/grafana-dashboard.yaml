@@ -29,6 +29,10 @@ grafana:
         gnetId: 7362
         revision: 3
         datasource: Prometheus
+      aspnet-dashboard:
+        gnetId: 17039
+        revision: 3
+        datasource: Prometheus
   additionalPlugins:
     - grafana-piechart-panel
     - grafana-clock-panel

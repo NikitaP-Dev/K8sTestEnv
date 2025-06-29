@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Values.prometheus.namespace | default "monitoring" }}
   labels:
     release: {{ .Release.Name }}
-    app: frontend-exporter
+    app: frontend
 spec:
   selector:
     matchLabels:

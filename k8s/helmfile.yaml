@@ -27,3 +27,6 @@ releases:
     namespace: frontend
     createNamespace: true
     chart: ./frontend
+    set:
+      - name: image.tag
+        value: "{{ env `FRONTEND_TAG` }}"
