@@ -17,6 +17,6 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - name: http
-              containerPort: 5099
+              containerPort: 5000
           resources:
             {{- toYaml .Values.resources | nindent 12 }}

@@ -1,12 +1,12 @@
 replicaCount: 2
 
 image:
-  repository: nginxdemos/hello
+  repository: nikitapdev/showcaseapp
   tag: latest
 
 service:
   type: ClusterIP
-  port: 5099
+  port: 5000
 
 autoscaling:
   enabled: true
