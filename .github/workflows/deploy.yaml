@@ -27,7 +27,7 @@ jobs:
           context: .
           file: SampleApp/Dockerfile
           push: true
-          tags: nikitapdev/showcaseapp:${{ github.sha }}
+          tags: nikitapdev/showcaseapp:latest
 
 #      - name: Deploy to remote server
 #        uses: appleboy/ssh-action@master
