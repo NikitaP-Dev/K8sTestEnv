@@ -5,7 +5,7 @@ image:
   tag: latest
 
 service:
-  port: 5000
+  port: 8080
 
 autoscaling:
   enabled: true

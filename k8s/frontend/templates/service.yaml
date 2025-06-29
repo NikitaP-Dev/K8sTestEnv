@@ -2,10 +2,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend-service
+  labels:
+    app: frontend-exporter
 spec:
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: {{ .Values.service.port }}
       name: http
   selector:
     app: frontend
