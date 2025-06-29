@@ -25,6 +25,10 @@ grafana:
         gnetId: 10000
         revision: 1
         datasource: Prometheus
+      mysql-dashboard:
+        gnetId: 7362
+        revision: 3
+        datasource: Prometheus
   additionalPlugins:
     - grafana-piechart-panel
     - grafana-clock-panel

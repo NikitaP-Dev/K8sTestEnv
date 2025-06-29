@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ .Release.Name }}-frontend-exporter
+  namespace: {{ .Values.prometheus.namespace | default "monitoring" }}
+  labels:
+    release: {{ .Release.Name }}
+    app: frontend-exporter
+spec:
+  selector:
+    matchLabels:
+      app: frontend-exporter
+  namespaceSelector:
+    matchNames:
+      - {{ .Values.frontend.namespace | default "frontend" }}
+  endpoints:
+    - port: http
+      interval: 15s
+      path: /metrics

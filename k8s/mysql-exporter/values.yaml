@@ -1,0 +1,14 @@
+image:
+  repository: prom/mysqld-exporter
+  tag: v0.14.0
+  
+datasource:
+  user: exporter
+  password: exporterpass
+  host: mysql.database.svc.cluster.local
+  
+prometheus:
+  namespace: monitoring
+  
+mysql:
+  namespace: database

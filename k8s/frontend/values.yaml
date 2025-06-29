@@ -6,7 +6,7 @@ image:
 
 service:
   type: ClusterIP
-  port: 80
+  port: 5099
 
 autoscaling:
   enabled: true
@@ -26,3 +26,9 @@ metrics:
   enabled: true
   path: /metrics
   portName: http
+
+prometheus:
+  namespace: monitoring
+
+frontend:
+  namespace: frontend

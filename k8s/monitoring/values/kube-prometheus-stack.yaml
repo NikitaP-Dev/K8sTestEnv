@@ -10,6 +10,8 @@ grafana:
 
 prometheus:
   prometheusSpec:
+    serviceMonitorNamespaceSelector: { } 
+    serviceMonitorSelector: { }
     serviceMonitorSelectorNilUsesHelmValues: false
     podMonitorSelectorNilUsesHelmValues: false
     retention: 7d
@@ -21,16 +23,3 @@ prometheus:
           resources:
             requests:
               storage: 5Gi
-
-additionalServiceMonitors:
-  - name: frontend-monitor
-    selector:
-      matchLabels:
-        app: frontend
-    endpoints:
-      - port: http
-        path: /metrics
-        interval: 15s
-    namespaceSelector:
-      matchNames:
-        - frontend

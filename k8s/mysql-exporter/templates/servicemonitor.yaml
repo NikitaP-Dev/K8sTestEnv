@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ .Release.Name }}-mysql-exporter
+  namespace: {{ .Values.prometheus.namespace | default "monitoring" }}
+  labels:
+    release: {{ .Release.Name }}
+    app: mysql-exporter
+spec:
+  selector:
+    matchLabels:
+      app: mysql-exporter
+  namespaceSelector:
+    matchNames:
+      - {{ .Values.mysql.namespace | default "database" }}
+  endpoints:
+    - port: metrics
+      interval: 30s
+      path: /metrics

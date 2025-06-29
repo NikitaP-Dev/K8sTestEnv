@@ -19,6 +19,9 @@ releases:
     namespace: database
     createNamespace: true
     chart: ./mysql 
+    
+  - name: mysql-exporter
+    chart: ./mysql-exporter
 
   - name: frontend
     namespace: frontend

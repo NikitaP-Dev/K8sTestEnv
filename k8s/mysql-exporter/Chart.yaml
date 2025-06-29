@@ -1,0 +1,3 @@
+apiVersion: v2
+name: mysql-exporter-chart
+version: 0.1.0
