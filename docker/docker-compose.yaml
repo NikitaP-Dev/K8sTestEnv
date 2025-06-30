@@ -1,0 +1,9 @@
+﻿networks:
+  monitoring-net:
+    driver: bridge
+
+include:
+  - monitoring/docker-compose.yaml
+  - mysql/docker-compose.yaml
+  - mysql-exporter/docker-compose.yaml
+  - sample-app/docker-compose.yaml
