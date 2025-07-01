@@ -14,12 +14,15 @@
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     networks:
       - monitoring-net
-  
+
   frontend:
     image: nikitapdev/showcaseapp:latest
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.sampleapp.rule=PathPrefix(`/`)"
+      - "traefik.http.routers.sampleapp.priority=10"
+      - "traefik.http.routers.sampleapp-metrics.rule=Path(`/metrics`)"
+      - "traefik.http.routers.sampleapp-metrics.priority=100"
       - "traefik.http.services.sampleapp.loadbalancer.server.port=8080"
     networks:
       - monitoring-net

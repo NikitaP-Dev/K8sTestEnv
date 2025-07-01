@@ -10,3 +10,8 @@ scrape_configs:
     metrics_path: /metrics
     static_configs:
       - targets: [ 'frontend:8080' ]
+      - targets:
+          - 'sampletest-frontend-1:8080'
+          - 'sampletest-frontend-2:8080'
+          - 'sampletest-frontend-3:8080'
+          

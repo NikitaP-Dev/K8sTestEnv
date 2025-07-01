@@ -3,7 +3,7 @@
     image: prom/mysqld-exporter:v0.14.0
     container_name: mysqld-exporter
     environment:
-      DATA_SOURCE_NAME: "${MYSQL_EXP_USER}:${MYSQL_EXP_PASSWORD}@tcp(mysql:3307)/"
+      DATA_SOURCE_NAME: "${MYSQL_EXP_USER}:${MYSQL_EXP_PASSWORD}@tcp(mysql:3306)/"
     networks:
       - monitoring-net
     ports:
