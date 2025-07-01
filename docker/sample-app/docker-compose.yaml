@@ -1,8 +1,25 @@
 ﻿services:
+  traefik:
+    image: traefik:latest
+    container_name: traefik-loadbalancer
+    command:
+      - "--providers.docker.exposedbydefault=false"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "${TRAEFIK_UI_PORT}:8080"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    networks:
+      - monitoring-net
+  
   frontend:
     image: nikitapdev/showcaseapp:latest
-    container_name: frontend
-    ports:
-      - "${FRONTEND_PORT}:8080"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sampleapp.rule=PathPrefix(`/`)"
+      - "traefik.http.services.sampleapp.loadbalancer.server.port=8080"
     networks:
       - monitoring-net
